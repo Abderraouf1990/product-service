@@ -8,8 +8,9 @@ JAVA_OPTS=""
 # Set the working directory to /app
 WORKDIR /app
 # Copy the executable into the container at /app
-ADD *.jar product-service-0.0.1-SNAPSHOT.jar
+COPY target/product-service-0.0.1-SNAPSHOT.jar product-service-0.0.1-SNAPSHOT.jar
+
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 # Run app.jar when the container launches
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-target 17", "-jar", "/app/product-service-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/product-service-0.0.1-SNAPSHOT.jar"]
